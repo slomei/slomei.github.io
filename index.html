@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stephen Lomei — Video Editor</title>
+    <title>Stephen Lomei — 1st Assistant Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,38 +14,83 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #0a0a0a;
+            --bg-subtle: #111111;
+            --surface: #161616;
+            --border: #222222;
+            --text: #d4d4d8;
+            --text-bright: #f4f4f5;
+            --text-dim: #71717a;
+            --text-mid: #a1a1aa;
+            --accent: #145545;
+            --accent-bright: #1a7a62;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(to top right, #0a0a0a 0%, #141414 100%);
-            color: #d4d4d8;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
 
         main {
-            max-width: 960px;
+            max-width: 880px;
             margin: 0 auto;
-            padding: 80px 24px 60px;
+            padding: 60px 24px 80px;
         }
 
+        /* ── Header ── */
         header {
             text-align: center;
             margin-bottom: 48px;
         }
 
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-bright);
+            letter-spacing: 0.06em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .availability::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-bright);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            color: #f4f4f5;
+            color: var(--text-bright);
             letter-spacing: -0.02em;
+            margin-bottom: 6px;
         }
 
         .title {
-            font-size: 0.95rem;
-            color: #71717a;
-            margin-top: 6px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.15em;
+        }
+
+        /* ── Reel ── */
+        .reel-section {
+            margin-bottom: 56px;
         }
 
         .reel {
@@ -50,8 +98,9 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 6px;
             box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
         }
 
         .reel iframe {
@@ -63,56 +112,167 @@
             border: 0;
         }
 
+        /* ── Bio ── */
         .bio {
-            max-width: 620px;
-            margin: 48px auto 0;
+            max-width: 640px;
+            margin: 0 auto 56px;
             text-align: center;
             font-size: 1.05rem;
-            line-height: 1.7;
-            color: #a1a1aa;
+            line-height: 1.75;
+            color: var(--text-mid);
         }
 
-        .contact {
+        /* ── Credits ── */
+        .credits-section {
+            margin-bottom: 56px;
+        }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .credits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+
+        .credit {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 16px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .credit:hover {
+            background: var(--surface);
+        }
+
+        .credit-title {
+            font-size: 0.95rem;
+            color: var(--text-bright);
+            font-weight: 500;
+        }
+
+        .credit-title em {
+            font-style: italic;
+        }
+
+        .credit-meta {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            white-space: nowrap;
+            margin-left: 16px;
+        }
+
+        .credit-role {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+
+        /* ── Contact ── */
+        .contact-section {
             display: flex;
             justify-content: center;
-            gap: 32px;
-            margin-top: 48px;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
         }
 
-        .contact a {
-            color: #d4d4d8;
+        .contact-section a {
+            color: var(--text);
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.04em;
+            font-size: 0.88rem;
+            letter-spacing: 0.03em;
             padding-bottom: 2px;
-            border-bottom: 1px solid #3f3f46;
+            border-bottom: 1px solid var(--border);
             transition: color 0.2s, border-color 0.2s;
         }
 
-        .contact a:hover {
-            color: #f4f4f5;
-            border-color: #71717a;
+        .contact-section a:hover {
+            color: var(--text-bright);
+            border-color: var(--text-dim);
         }
 
-        @media (max-width: 600px) {
+        .contact-divider {
+            width: 3px;
+            height: 3px;
+            background: var(--text-dim);
+            border-radius: 50%;
+        }
+
+        .resume-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .resume-link svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ── Footer ── */
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+            text-align: center;
+        }
+
+        .footer-line {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: #333;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
             main {
-                padding: 48px 16px 40px;
+                padding: 40px 16px 60px;
             }
 
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
 
             .bio {
                 font-size: 0.95rem;
-                margin-top: 32px;
+                margin-bottom: 40px;
             }
 
-            .contact {
+            .credits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credit {
+                padding: 10px 12px;
+            }
+
+            .contact-section {
                 flex-direction: column;
-                align-items: center;
-                gap: 16px;
-                margin-top: 32px;
+                gap: 14px;
+            }
+
+            .contact-divider {
+                display: none;
             }
         }
     </style>
@@ -120,24 +280,104 @@
 <body>
     <main>
         <header>
+            <p class="availability">Available for work</p>
             <h1>Stephen Lomei</h1>
-            <p class="title">Video Editor</p>
+            <p class="title">1st Assistant Editor · Animation</p>
         </header>
 
-        <div class="reel">
-            <iframe src="https://player.vimeo.com/video/1166552214?dnt=1" allowfullscreen allow="fullscreen"></iframe>
+        <div class="reel-section">
+            <div class="reel">
+                <iframe 
+                    src="https://player.vimeo.com/video/1166552214?title=0&byline=0&portrait=0&dnt=1" 
+                    allowfullscreen 
+                    allow="fullscreen">
+                </iframe>
+            </div>
         </div>
 
         <p class="bio">
-            13 years of experience in feature animation editorial at Blue Sky Studios
-            and Netflix Animation. Credits include <em>Ferdinand</em>, <em>The Peanuts Movie</em>,
-            <em>Rio 2</em>, <em>Nimona</em>, and <em>Ultraman: Rising</em>.
+            13 years in feature animation editorial at Blue Sky Studios and Netflix Animation.
+            Experienced across the full post-production pipeline from storyboard assembly through 
+            final delivery. Remote-collaboration fluent, working from New York on Burbank-based 
+            productions since 2021.
         </p>
 
-        <div class="contact">
+        <div class="credits-section">
+            <p class="section-label">Select Credits</p>
+            <div class="credits-grid">
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Prince of Port-Au-Prince</em></div>
+                        <div class="credit-role">1st Asst. Editor — Netflix Animation</div>
+                    </div>
+                    <span class="credit-meta">Unreleased</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Foster</em></div>
+                        <div class="credit-role">1st Asst. Editor — Blue Sky Studios</div>
+                    </div>
+                    <span class="credit-meta">Unreleased</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Ultraman: Rising</em></div>
+                        <div class="credit-role">Asst. Editor (Add'l) — Netflix</div>
+                    </div>
+                    <span class="credit-meta">2024</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Nimona</em></div>
+                        <div class="credit-role">Asst. Editor (Add'l) — Blue Sky Studios</div>
+                    </div>
+                    <span class="credit-meta">2023</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Ferdinand</em></div>
+                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
+                    </div>
+                    <span class="credit-meta">2017</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Ice Age: Collision Course</em></div>
+                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
+                    </div>
+                    <span class="credit-meta">2016</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>The Peanuts Movie</em></div>
+                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
+                    </div>
+                    <span class="credit-meta">2015</span>
+                </div>
+                <div class="credit">
+                    <div>
+                        <div class="credit-title"><em>Rio 2</em></div>
+                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
+                    </div>
+                    <span class="credit-meta">2014</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
             <a href="mailto:steve@slomei.com">steve@slomei.com</a>
+            <span class="contact-divider"></span>
             <a href="https://www.linkedin.com/in/steve-lomei-53169a25/" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="contact-divider"></span>
+            <a href="/Stephen_Lomei_Resume_2026.pdf" target="_blank" class="resume-link">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Résumé
+            </a>
         </div>
     </main>
+
+    <footer>
+        <p class="footer-line">© 2026 Stephen Lomei</p>
+    </footer>
 </body>
 </html>
