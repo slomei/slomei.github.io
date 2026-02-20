@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Lomei — Video Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to top right, #0a0a0a 0%, #141414 100%);
+            color: #d4d4d8;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #f4f4f5;
+            letter-spacing: -0.02em;
+        }
+
+        .title {
+            font-size: 0.95rem;
+            color: #71717a;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .reel {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .reel iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .bio {
+            max-width: 620px;
+            margin: 48px auto 0;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #a1a1aa;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .contact a {
+            color: #d4d4d8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #3f3f46;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .contact a:hover {
+            color: #f4f4f5;
+            border-color: #71717a;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 48px 16px 40px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .bio {
+                font-size: 0.95rem;
+                margin-top: 32px;
+            }
+
+            .contact {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                margin-top: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Stephen Lomei</h1>
+            <p class="title">Video Editor</p>
+        </header>
+
+        <div class="reel">
+            <iframe src="https://player.vimeo.com/video/513904877?dnt=1" allowfullscreen allow="fullscreen"></iframe>
+        </div>
+
+        <p class="bio">
+            13 years of experience in feature animation editorial at Blue Sky Studios
+            and Netflix Animation. Credits include <em>Ferdinand</em>, <em>The Peanuts Movie</em>,
+            <em>Rio 2</em>, <em>Nimona</em>, and <em>Ultraman: Rising</em>.
+        </p>
+
+        <div class="contact">
+            <a href="mailto:steve@slomei.com">steve@slomei.com</a>
+            <a href="https://www.linkedin.com/in/steve-lomei-53169a25/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </main>
+</body>
+</html>
