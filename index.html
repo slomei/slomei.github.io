@@ -122,6 +122,86 @@
             color: var(--text-mid);
         }
 
+        /* ── Projects ── */
+        .project-section {
+            margin-bottom: 36px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .project-header {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .project-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .project-tagline {
+            font-size: 0.92rem;
+            color: var(--text-mid);
+            line-height: 1.5;
+        }
+
+        .project-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent-bright);
+            text-decoration: none;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+            padding: 6px 12px;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .project-link:hover {
+            background: var(--accent);
+            color: var(--text-bright);
+        }
+
+        .project-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #000;
+        }
+
+        .project-context {
+            padding: 16px 24px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
         /* ── Credits ── */
         .credits-section {
             margin-bottom: 36px;
@@ -266,6 +346,15 @@
                 padding: 10px 12px;
             }
 
+            .project-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .project-link {
+                align-self: flex-start;
+            }
+
             .contact-section {
                 flex-direction: column;
                 gap: 14px;
@@ -301,6 +390,25 @@
             final delivery. Remote-collaboration fluent, working from New York on Burbank-based 
             productions since 2021.
         </p>
+
+        <div class="project-section">
+            <p class="section-label">Projects</p>
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-name">First Contact</h2>
+                        <p class="project-tagline">A personal AI agent built from scratch with the Anthropic API. Not a chatbot — an agent that actually does things.</p>
+                    </div>
+                    <a href="https://github.com/slomei/first-contact" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+                </div>
+                <div class="project-video">
+                    <video controls preload="metadata" playsinline>
+                        <source src="https://github.com/user-attachments/assets/abc5fe1d-5ae5-4878-8715-ff036865b6d5" type="video/mp4">
+                    </video>
+                </div>
+                <p class="project-context">Built by a video editor with 13 years in feature animation, not a software engineer.</p>
+            </div>
+        </div>
 
         <div class="credits-section">
             <p class="section-label">Select Credits</p>
