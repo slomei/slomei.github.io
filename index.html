@@ -185,14 +185,13 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .project-video video {
+        .project-video iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            background: #000;
+            border: 0;
         }
 
         .project-context {
@@ -402,9 +401,11 @@
                     <a href="https://github.com/slomei/first-contact" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
                 </div>
                 <div class="project-video">
-                    <video controls preload="metadata" playsinline>
-                        <source src="https://github.com/user-attachments/assets/abc5fe1d-5ae5-4878-8715-ff036865b6d5" type="video/mp4">
-                    </video>
+                    <iframe
+                        src="https://player.vimeo.com/video/1167090219?title=0&byline=0&portrait=0&dnt=1"
+                        allowfullscreen
+                        allow="fullscreen">
+                    </iframe>
                 </div>
                 <p class="project-context">Built by a video editor with 13 years in feature animation, not a software engineer.</p>
             </div>
