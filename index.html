@@ -127,19 +127,31 @@
             margin-bottom: 36px;
         }
 
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
         .project-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .project-header {
             padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 16px;
+        }
+
+        .project-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .project-name {
@@ -154,6 +166,13 @@
             font-size: 0.92rem;
             color: var(--text-mid);
             line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .project-context {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            font-style: italic;
         }
 
         .project-link {
@@ -176,88 +195,27 @@
             color: var(--text-bright);
         }
 
-        .project-video {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .project-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .project-context {
-            padding: 16px 24px;
-            font-size: 0.82rem;
-            color: var(--text-dim);
-            font-style: italic;
-        }
-
-        /* ── Credits ── */
-        .credits-section {
+        /* ── Credits summary ── */
+        .credits-summary {
             margin-bottom: 36px;
         }
 
-        .section-label {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .credits-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-        }
-
-        .credit {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 10px 16px;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-
-        .credit:hover {
-            background: var(--surface);
-        }
-
-        .credit-title {
+        .credits-summary p {
             font-size: 0.95rem;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        .credits-summary a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .credits-summary a:hover {
             color: var(--text-bright);
-            font-weight: 500;
-        }
-
-        .credit-title em {
-            font-style: italic;
-        }
-
-        .credit-meta {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            white-space: nowrap;
-            margin-left: 16px;
-        }
-
-        .credit-role {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            margin-top: 2px;
+            border-color: var(--text-dim);
         }
 
         /* ── Contact ── */
@@ -337,15 +295,7 @@
                 margin-bottom: 40px;
             }
 
-            .credits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .credit {
-                padding: 10px 12px;
-            }
-
-            .project-header {
+            .project-card {
                 flex-direction: column;
                 gap: 12px;
             }
@@ -375,9 +325,9 @@
 
         <div class="reel-section">
             <div class="reel">
-                <iframe 
-                    src="https://player.vimeo.com/video/1166552214?title=0&byline=0&portrait=0&dnt=1" 
-                    allowfullscreen 
+                <iframe
+                    src="https://player.vimeo.com/video/1166552214?title=0&byline=0&portrait=0&dnt=1"
+                    allowfullscreen
                     allow="fullscreen">
                 </iframe>
             </div>
@@ -385,92 +335,26 @@
 
         <p class="bio">
             13 years in feature animation editorial at Blue Sky Studios and Netflix Animation.
-            Experienced across the full post-production pipeline from storyboard assembly through 
-            final delivery. Remote-collaboration fluent, working from New York on Burbank-based 
+            Experienced across the full post-production pipeline from storyboard assembly through
+            final delivery. Remote-collaboration fluent, working from New York on Burbank-based
             productions since 2021.
         </p>
 
         <div class="project-section">
             <p class="section-label">Projects</p>
             <div class="project-card">
-                <div class="project-header">
-                    <div>
-                        <h2 class="project-name">First Contact</h2>
-                        <p class="project-tagline">A personal AI agent built from scratch with the Anthropic API. Not a chatbot — an agent that actually does things.</p>
-                    </div>
-                    <a href="https://github.com/slomei/first-contact" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
+                <div class="project-info">
+                    <h2 class="project-name">First Contact</h2>
+                    <p class="project-tagline">A personal AI agent built from scratch with the Anthropic API. Not a chatbot — an agent that actually does things.</p>
+                    <p class="project-context">Built by a video editor with 13 years in feature animation, not a software engineer.</p>
                 </div>
-                <div class="project-video">
-                    <iframe
-                        src="https://player.vimeo.com/video/1167090219?title=0&byline=0&portrait=0&dnt=1"
-                        allowfullscreen
-                        allow="fullscreen">
-                    </iframe>
-                </div>
-                <p class="project-context">Built by a video editor with 13 years in feature animation, not a software engineer.</p>
+                <a href="https://github.com/slomei/first-contact" target="_blank" rel="noopener" class="project-link">GitHub ↗</a>
             </div>
         </div>
 
-        <div class="credits-section">
+        <div class="credits-summary">
             <p class="section-label">Select Credits</p>
-            <div class="credits-grid">
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Prince of Port-Au-Prince</em></div>
-                        <div class="credit-role">1st Asst. Editor — Netflix Animation</div>
-                    </div>
-                    <span class="credit-meta">Unreleased</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Foster</em></div>
-                        <div class="credit-role">1st Asst. Editor — Blue Sky Studios</div>
-                    </div>
-                    <span class="credit-meta">Unreleased</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Ultraman: Rising</em></div>
-                        <div class="credit-role">Asst. Editor (Add'l) — Netflix</div>
-                    </div>
-                    <span class="credit-meta">2024</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Nimona</em></div>
-                        <div class="credit-role">Asst. Editor (Add'l) — Blue Sky Studios</div>
-                    </div>
-                    <span class="credit-meta">2023</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Ferdinand</em></div>
-                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
-                    </div>
-                    <span class="credit-meta">2017</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Ice Age: Collision Course</em></div>
-                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
-                    </div>
-                    <span class="credit-meta">2016</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>The Peanuts Movie</em></div>
-                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
-                    </div>
-                    <span class="credit-meta">2015</span>
-                </div>
-                <div class="credit">
-                    <div>
-                        <div class="credit-title"><em>Rio 2</em></div>
-                        <div class="credit-role">2nd Asst. Editor — Blue Sky Studios</div>
-                    </div>
-                    <span class="credit-meta">2014</span>
-                </div>
-            </div>
+            <p>Credits include <em>Ferdinand</em>, <em>Nimona</em>, <em>The Peanuts Movie</em>, <em>Ultraman: Rising</em>, and more. <a href="/credits.html">View full filmography ↗</a></p>
         </div>
 
         <div class="contact-section">
