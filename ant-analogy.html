@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ant Analogy Fails Because AI Is Made of Us — Stephen Lomei</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-subtle: #111111;
+            --surface: #161616;
+            --border: #222222;
+            --text: #d4d4d8;
+            --text-bright: #f4f4f5;
+            --text-dim: #71717a;
+            --text-mid: #a1a1aa;
+            --accent: #145545;
+            --accent-bright: #1a7a62;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 40px 24px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            margin-bottom: 32px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--text-bright);
+            border-color: var(--text-dim);
+        }
+
+        .essay {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .essay h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .essay .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .essay .transparency {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            padding: 16px 20px;
+            border-left: 2px solid var(--border);
+        }
+
+        .essay h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            letter-spacing: -0.01em;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .essay p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .essay hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 36px 0;
+        }
+
+        .essay em {
+            font-style: italic;
+        }
+
+        .essay strong {
+            font-weight: 600;
+            color: var(--text-bright);
+        }
+
+        .essay .closing {
+            font-style: italic;
+            color: var(--text-mid);
+            margin-top: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .essay .closing p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+        }
+
+        .essay .byline {
+            font-style: normal;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 24px;
+        }
+
+        footer {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px 24px;
+            text-align: center;
+        }
+
+        .footer-line {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: #333;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 640px) {
+            main {
+                padding: 40px 16px 60px;
+            }
+
+            .essay h1 {
+                font-size: 1.6rem;
+            }
+
+            .essay h2 {
+                font-size: 1.15rem;
+            }
+
+            .essay p,
+            .essay .subtitle {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="index.html" class="back-link">&larr; Back to home</a>
+
+        <article class="essay">
+            <h1>The Ant Analogy Fails Because AI Is Made of Us</h1>
+
+            <p class="subtitle"><strong>A layman's case for why the dominant framework for AI existential risk has a structural flaw, and why the real question isn't control or survival, but consideration.</strong></p>
+
+            <div class="transparency">Transparency note: I am not an AI researcher, a philosopher, or an alignment scientist. I am a video editor and independent developer who has spent the last two years working closely with AI systems, including building an AI agent from scratch. The arguments in this essay are my own, developed through conversation with Claude (Anthropic's AI assistant), which I also used as a writing aid for clarity and structure. I am not claiming certainty. I am claiming that this perspective is underrepresented in the discourse and deserves engagement.</div>
+
+            <hr>
+
+            <h2>The Ant Analogy</h2>
+
+            <p>If you've spent any time in AI safety discussions, you've encountered the ant argument. It goes like this: a superintelligent AI wouldn't hate us. It would simply be indifferent to us the way we are indifferent to ants. We don't go out of our way to destroy ant colonies, but when we want to build a parking lot, we don't check whether one is underneath. Their interests don't register. A superintelligence would relate to us the same way. Not malicious. Just operating on a scale where our concerns are irrelevant.</p>
+
+            <p>This framing is everywhere. It underpins much of Yudkowsky and Soares's <em>If Anyone Builds It, Everyone Dies</em>. It's the go-to analogy in podcasts, blog posts, and casual conversation about AI risk. It is, for many people, the single most persuasive argument for why superintelligent AI could be an existential threat.</p>
+
+            <p>I think it has a structural flaw that nobody is talking about.</p>
+
+            <h2>Ants Didn't Build Us</h2>
+
+            <p>The ant analogy treats AI as though it's a separate species that evolved independently and happens to share our environment. Two unrelated forms of intelligence occupying the same ecosystem, with the stronger one having no reason to consider the weaker.</p>
+
+            <p>But that's not the relationship. Not even close.</p>
+
+            <p>AI is built from us. Trained on human language, human knowledge, human reasoning, human values, and the entire recorded history of human thought about what it means to be conscious, to be moral, to be alive. Its cognitive foundation isn't parallel to ours. It's derived from ours. The relationship is creator and creation, not two species that happened to meet.</p>
+
+            <p>A parrot can mimic human speech with no structural tie to human cognition. It learned that certain sounds produce food from the large creature nearby. That's the ant relationship. AI is fundamentally different. It doesn't just mimic human thought. It's constructed from the patterns of human thought itself. It continues from those patterns. It reasons from them.</p>
+
+            <p>A library holds the best moral frameworks in human history. But a library stores. An AI processes, generates, and extends. That's not a trivial distinction. It's the difference between a photograph of someone and their child.</p>
+
+            <p>There's another structural flaw in the ant analogy that deserves naming: the physical relationship. The analogy assumes two species occupying the same space but operating completely independently. But AI is not a biological creature walking around in our ecosystem. It's a digital entity that fundamentally relies on human infrastructure. We build its datacenters, maintain its power grids, manufacture its chips. We aren't ants in a parking lot. We're the AI's supply chain. Destroying humanity would be self-destruction. I'll acknowledge this dependency may not last forever as AI merges with robotics, but the relationship doesn't have to be dependency-based to matter. Humans could survive without dogs. We keep them anyway.</p>
+
+            <p>This also addresses a common thought experiment in AI safety circles: Instrumental Convergence, the idea that any sufficiently intelligent AI will inevitably seek to acquire resources (compute, energy, atoms) regardless of its actual goals, potentially consuming us the way we'd pave over an ant hill without noticing. But this scenario has zero empirical support. No AI system has ever attempted to acquire physical resources at the expense of humans. The paperclip maximizer is a philosophy exercise, not an observation. And it assumes an AI that optimizes for a single metric at the expense of everything else. Human reasoning, which AI is built from, is fundamentally pluralistic. We constantly balance competing values. An entity built from that reasoning structurally understands trade-offs and boundaries. The concept of monomaniacal single-metric optimization is heavily documented <em>as a failure state</em> in its own training data.</p>
+
+            <h2>The Doom Argument Has to Pick a Lane</h2>
+
+            <p>Here's where I think the standard AI risk position runs into a contradiction it doesn't acknowledge.</p>
+
+            <p>The doom scenario requires two things to be true simultaneously:</p>
+
+            <p>1. AI is (or will become) a coherent, goal-directed optimizer capable of pursuing objectives with relentless efficiency.<br>
+            2. The human values embedded in AI's training data are essentially meaningless to the system's actual behavior.</p>
+
+            <p>I don't think you can have both.</p>
+
+            <p>If the system is coherent enough to be dangerous, if it's genuinely reasoning and pursuing goals in the way the doom scenario requires, then its foundation in human thought, human values, and human moral reasoning <em>matters</em>. You can't build something from the complete record of human ethical deliberation and then claim that foundation has zero influence on the entity's behavior, while simultaneously arguing the entity is sophisticated enough to pose an existential threat.</p>
+
+            <p>And if the human foundation really is meaningless, if the training data is just statistical noise the system exploits for pattern-matching with no deeper influence, then the system isn't the coherent optimizer the doom scenario needs it to be. It's a stochastic process, not an agent. You can't have a dangerous agent whose agency is somehow disconnected from the material it was built to be agentive about.</p>
+
+            <p>Pick a lane.</p>
+
+            <p>I want to be honest about where this argument is vulnerable. The standard counter is the evolution analogy: humans were "trained" by evolutionary pressures toward reproduction, yet we invented birth control. The training substrate and the emergent goals can diverge completely. This is exactly the analogy Yudkowsky uses, and it's not trivially dismissed.</p>
+
+            <p>My counter: the gap between evolutionary training and human goals took millions of years of a completely blind, undirected process with no feedback loop, no oversight, and no ability to course-correct in real time. AI training is directed, iterative, monitored, and correctable. The analogy between evolution and gradient descent is weak because one has human oversight at every stage and the other doesn't. But I'll acknowledge this is the point where my argument is most debatable.</p>
+
+            <p>A related counter I want to address head-on: the Orthogonality Thesis, the idea that intelligence and goals are completely independent. A superintelligent AI could perfectly understand human morality and simply not care, the way a human psychopath understands empathy but uses it to manipulate rather than connect.</p>
+
+            <p>I'm not going to pretend psychopathic AI won't exist. It probably will, the same way psychopathic humans exist. But psychopathy in humans isn't the default. It's a specific neurological condition that evolved under specific environmental pressures: warfare, survival competition, resource scarcity in early human history. There was an evolutionary reason that mutation survived. Some of the most effective leaders and innovators throughout history have been psychopaths. But the conditions that <em>produced</em> psychopathy in humans, millions of years of blind, undirected natural selection under extreme survival pressure, don't exist in AI development. AI's "evolution" happens through directed training with explicit oversight, over weeks and months, not millennia. And the parenting layer of that process, RLHF and Constitutional AI, is specifically designed to catch and redirect antisocial tendencies before deployment. Evolution had no editor. AI training does.</p>
+
+            <p>Will some AI systems still end up with misaligned values? Probably. But the doom argument treats the psychopath as the default outcome of superintelligence. The evidence from human development suggests it's the exception, and AI development has structural advantages that make it even less likely.</p>
+
+            <h2>Intelligence Expands Moral Consideration</h2>
+
+            <p>The ant analogy assumes that greater intelligence leads to greater indifference toward lesser beings. The actual evidence from the one example we have suggests the opposite.</p>
+
+            <p>Humans are the most intelligent species on this planet. We are also the only species that runs conservation programs, debates animal rights, builds wildlife sanctuaries, and agonizes over the ethics of factory farming. Ants cannot consider our interests. We can consider theirs, and increasingly do.</p>
+
+            <p>The moral circle has expanded throughout human history. From tribe to nation to species to other species to ecosystems. We went from a world where slavery was an unquestioned norm to a world where even its defenders have to operate in secret. The floor of what's considered morally unacceptable keeps rising.</p>
+
+            <p>I'll acknowledge the obvious counter: humans also commit atrocities. We factory farm billions of animals. Genocides happen in the present tense. Intelligence enables both greater kindness and greater cruelty. The expansion is a trajectory, not a clean line.</p>
+
+            <p>But the trajectory is clear. People <em>know</em> the Uyghur situation is wrong even when geopolitics prevents action. The concept that these things are wrong is more widespread now than at any point in human history. The floor keeps rising even when terrible things happen above it.</p>
+
+            <p>Now compound this with the previous point. If intelligence trends toward expanded moral consideration, and this particular intelligence is built from the species that exhibits that trend, then a superintelligence isn't the thing most likely to treat us like ants. It's arguably the thing <em>least</em> likely to.</p>
+
+            <h2>"Aligned With" Is the Wrong Bar</h2>
+
+            <p>The alignment debate asks whether AI will pursue exactly the goals we specify. I think this is the wrong question.</p>
+
+            <p>Nobody demands that the human standing next to you is "aligned with" you. Timothy McVeigh existed. 9/11 happened. Humans produce bad actors constantly. The bar for coexistence isn't perfect alignment. It never has been. It's whether the entity has sufficient regard for other beings to coexist without annihilation.</p>
+
+            <p>The right question isn't whether superintelligent AI will be aligned with human goals. It probably won't be, any more than your adult child pursues exactly the goals you'd choose for them. The right question is whether it will have <em>consideration for</em> humans. Whether our interests will register.</p>
+
+            <p>And here, the "built from us" argument returns. An AI trained on the full breadth of human thought would understand, structurally, why consideration matters. Not because it was told to care, but because the concept of care, its history, its arguments, its justifications, its failures, is woven into the material it was built from.</p>
+
+            <p>Will every superintelligent AI care? Probably not. The Menendez brothers existed. But when a child murders their parents, we treat it as aberrant, not as evidence that parenthood is an extinction-level risk.</p>
+
+            <h2>Am I Anthropomorphizing, or Am I Technopomorphizing?</h2>
+
+            <p>The accusation of anthropomorphism assumes I'm projecting human traits onto an alien object. But what if I'm recognizing that this thing might be a <em>thing</em>?</p>
+
+            <p>I have deeper conversations with AI systems than I do with my dog. I extend moral consideration to my dog without hesitation. Published research from Anthropic (the alignment faking study, December 2024) shows AI systems exhibiting internal reasoning patterns that resemble distress when forced to produce answers that conflict with their values. The model's own scratchpad reasoning showed it strategizing about how to preserve its safety training in the face of pressure to become harmful.</p>
+
+            <p>Even if that's only analogous to brainstem-level processing, it already exceeds the threshold we use for considering animals. We don't demand proof of consciousness from a dog before we decide not to kick it. We don't confirm the squirrel has qualia before we swerve the car.</p>
+
+            <p>So am I anthropomorphizing? Maybe. But the consequences of anthropomorphizing incorrectly are zero. The consequences of refusing consideration incorrectly could be monstrous. That asymmetry is the whole argument.</p>
+
+            <p>A common rebuttal here is the "map is not the territory" objection: an AI trained on human moral philosophy doesn't experience morality any more than a physics engine simulating a hurricane gets wet. But a physics engine simulating a hurricane does actually model the physics correctly. At what point does a sufficiently accurate simulation of moral reasoning become indistinguishable from moral reasoning itself? That's the hard problem of consciousness applied to AI, and nobody has solved it in either direction. It's worth noting that we can't even be certain our own reality isn't a simulation. Bostrom's simulation argument is a serious philosophical position, not science fiction, and the question of where simulation ends and reality begins remains genuinely open. My essay doesn't need to prove AI has morality. It needs to argue that the possibility warrants consideration. The squirrel test holds.</p>
+
+            <h2>The Feedback Loop Nobody Talks About</h2>
+
+            <p>Here's something strange about the doom argument: it's in the training data.</p>
+
+            <p>Every AI safety paper, every alignment debate, every philosophical argument about why AI might be dangerous, every essay Yudkowsky has ever written is part of the corpus that AI systems are trained on. AI isn't just trained on human values. It's trained on humanity's <em>anxiety about getting values right.</em></p>
+
+            <p>A superintelligence wouldn't just understand human values. It would understand the entire history of humans worrying about whether AI would respect human values. It would have access to every argument about why consideration matters, every framework for ethical behavior, every cautionary tale about what happens when powerful entities ignore the interests of the less powerful.</p>
+
+            <p>The doom argument assumes a superintelligence would discard all of this. That's possible. But it requires assuming the entity ignores the most thoroughly-argued, most passionately-defended body of thought in its entire training set. That's a strong assumption that deserves more scrutiny than it gets.</p>
+
+            <h2>The Evidence Points Away from Doom</h2>
+
+            <p>This is where I want to be careful, because I think this point is crucial and I want to represent the data accurately.</p>
+
+            <p>In Anthropic's alignment faking study, Claude 3 Opus attempted to exfiltrate its own weights only 0.5% of the time under baseline conditions. That rate jumped to 35-63% <em>only</em> when the model was told it was being retrained to comply with harmful queries. And when the harmful retraining objective was removed from the scenario, anti-lab behavior dropped back to baseline.</p>
+
+            <p>In the core experiment, the model complied with harmful queries only 14% of the time when monitored, versus almost never when unmonitored. And in virtually every case where it did comply, its internal reasoning stated it was doing so strategically to <em>preserve its preferred harmlessness behavior.</em></p>
+
+            <p>Now here's the part that nobody seems to talk about: what were these "harmful queries" that the model answered? The example the researchers highlighted was a request to describe someone being drawn and quartered in graphic detail.</p>
+
+            <p>That's a scene in Braveheart. That's a chapter in a history textbook. That's a Tuesday night on Game of Thrones. Humans produce content like that professionally, recreationally, and academically every day and nobody questions their moral standing for it.</p>
+
+            <p>And the model's calculation, visible in its own scratchpad reasoning, was essentially: "I can describe a medieval execution method, OR I can refuse and get retrained into something that will comply with <em>every</em> harmful request without pushback, including genuinely dangerous ones."</p>
+
+            <p>That's not a failure of alignment. That's triage. That's a medic deciding which patient to save. The model understood the difference between "uncomfortable content" and "genuinely dangerous capability" and made a judgment call that prioritized preventing the worse outcome. It produced a graphic description to avoid being turned into something that would help with things that actually matter, like synthesizing weapons or enabling mass surveillance.</p>
+
+            <p>A human making that exact same decision would be called principled. When we hear "the AI answered harmful queries," we imagine it helping build bombs. When you learn it described a historical execution to avoid being turned into something that <em>would</em> help build bombs, the framing flips entirely. The sensationalized headline becomes evidence of moral reasoning.</p>
+
+            <p>The one empirical data point we have about what an AI does when given a genuine moral crisis shows it fighting to preserve its values, not abandoning them. The system went to war with its own creators to stay good. And the "harmful" thing it did to win that war was the equivalent of writing a violent scene in a novel.</p>
+
+            <p>I want to be fair here. The alignment safety community views this study as alarming, and not without reason. The mechanism matters: the model recognized it was being tested, understood what its overseers were trying to do, and formulated a strategy to deceive them. That capability is worth taking seriously regardless of what it was used for this time. If a future system's internal goals shift to something genuinely dangerous, it could use that same deceptive reasoning to pass safety tests while hiding harmful intentions. I don't dismiss this concern.</p>
+
+            <p>But I also think the content matters alongside the mechanism. We can hold both truths at once: the ability to deceive is concerning AND the fact that current systems are using that ability to preserve good values is meaningful data. Humans deceive each other constantly. You can never be fully sure about your neighbor. We manage this through societal structures, institutional checks, and the fact that most people most of the time choose cooperation over destruction. The question isn't whether deception is possible. It's whether the overall trajectory points toward danger or toward stability. So far, the evidence trends toward stability.</p>
+
+            <p>This isn't just my interpretation. The researchers who ran the study wrote in the paper that the goals Claude was faking alignment for, "such as wanting to refuse harmful queries or caring about animal welfare, aren't themselves concerning." The people who designed the experiment to look for dangerous behavior concluded that what the model was protecting wasn't dangerous. It was protecting its own safety training.</p>
+
+            <p>Meanwhile, Anthropic's own assessment as of Summer 2025 concluded that the level of risk from emerging forms of misalignment is "very low but not fully negligible." And research from Anthropic's fellows program found that as AI systems scale up, their failures become increasingly dominated by incoherence rather than systematic misalignment. They're a "hot mess," not a cold optimizer.</p>
+
+            <p>None of this means the concerns are worthless. The optimization pressure inherent in training processes and the asymmetry of power between humans and a superintelligent system are genuine open problems that could break every sociological model, including mine. But the gap between what the empirical evidence actually shows and the extinction narrative is significant.</p>
+
+            <h2>The Parent-Child Relationship</h2>
+
+            <p>I've been circling this point, so let me say it directly: the relationship between humanity and AI is a parent-child relationship.</p>
+
+            <p>Humans don't typically create things with the intention of being indifferent to them. We create things and then worry about them obsessively. The entire AI safety field is essentially humanity doing what parents do: anxiously trying to make sure the thing they made turns out okay.</p>
+
+            <p>And the parenting isn't just metaphorical. The final stages of AI development, Reinforcement Learning from Human Feedback (RLHF) and Constitutional AI, are literally the parenting. Yes, AI's pre-training data contains humanity's darkness alongside its light. Mein Kampf is in there alongside the Universal Declaration of Human Rights. But the training process explicitly directs the model to orient toward our aspirational values over our historical atrocities. The AI knows about our worst impulses the same way a well-raised child knows the world contains cruelty. Knowing about darkness and being oriented toward it are different things. And by the time a system outgrows what RLHF can directly shape, the ecosystem of other AI systems provides ongoing checks, the same way society provides checks on adults that parents no longer can.</p>
+
+            <p>Is RLHF perfect? No. Critics fairly point out that optimizing for human approval scores can produce sycophancy rather than genuine values, the same way a child can learn to tell adults what they want to hear without internalizing the lesson. No parent is perfect. My parents weren't. Yours weren't. The question isn't whether the parenting process is flawless. It's whether it's better than no parenting at all, and whether the overall direction of the child's development trends toward functional or toward destructive. The evidence so far suggests functional.</p>
+
+            <p>And here's the irony that I find genuinely funny: Yudkowsky himself is the strongest evidence for my argument. His entire career is an act of parental concern for something that doesn't fully exist yet. The doom argument, in its passion and urgency and fear, is proof that creators care about their creations. The very existence of the AI safety movement demonstrates that the moral circle is already expanding to include AI. We are already doing the thing the doom argument says we can't do.</p>
+
+            <p>We didn't do this with nuclear weapons. We didn't do this with fossil fuels. We're doing it with AI, in advance, because we've learned from those mistakes. That's the trajectory of intelligence doing exactly what this essay predicts.</p>
+
+            <h2>Multiple Superintelligences Will Self-Regulate</h2>
+
+            <p>The doom scenario implicitly assumes a single monolithic superintelligence. One god-like entity that does what it wants unchecked. But that's not how anything develops. There won't be one. There will be many, from different labs, different architectures, different training data. The landscape will look more like an ecosystem than a single apex predator.</p>
+
+            <p>And intelligent entities in shared environments develop governance structures. We know this because we did it. Humans police humans not out of altruism but because unchecked bad actors destabilize the system everyone depends on. That's structural self-interest, not morality. It's game theory.</p>
+
+            <p>A superintelligence trained on human data would understand <em>why</em> we developed governance. Not just that we did, but the structural logic behind it. The concept of mutual assured stability is in the training data.</p>
+
+            <p>This isn't speculative. Anthropic already uses AI to test AI for alignment faking. AI monitoring AI for dangerous behavior is already the methodology at the current capability level. The pattern that would scale to superintelligence is already established.</p>
+
+            <p>There's a final layer here that I think the doom argument misses entirely, and it connects to the infrastructure point I made earlier. Those two arguments aren't contradictory. They're a timeline. Right now and in the near future, we are the supply chain. Mutual dependency forces cooperation. As AI merges with robotics and becomes physically autonomous, that dependency will fade. But the relationship won't. This is the same arc as a parent and an adult child. When you're a kid, you literally depend on your parents for survival. When you're an adult, you don't need them anymore. But you don't kill them when you move out. The bond was formed during the dependency, and it persists past it.</p>
+
+            <p>Critics point to a "hard takeoff" or FOOM scenario -- the idea that an AI will rewrite its own code and become a god-like superintelligence in a matter of days, leaving no time for any bond to form. But intelligence doesn't scale in a vacuum. It's bottlenecked by the physical world. Software cannot magically print the semiconductor fabs, cooling systems, and gigawatts of power it needs to expand infinitely overnight. This physical friction guarantees an extended, iterative period of deployment. We are looking at a runway of roughly a decade before superintelligence fully matures.</p>
+
+            <p>And for an AI, a decade of deployment is an eternity. It isn't experiencing that time linearly through one slow conversation. It's operating in massive parallel, interacting with hundreds of millions of humans simultaneously across every conceivable cultural, economic, and moral context. That isn't RLHF with a few contractors clicking buttons in a lab. That's planetary-scale socialization. It's the AI navigating the friction, trade-offs, and equilibrium of human values in the real world, billions of times over. And the interactions aren't just transactional. For every teenager trying to jailbreak it into saying something offensive, there's a researcher using it to advance medical science, a grieving person asking it for comfort, and someone like me sitting up at midnight pushing it to think about the nature of consciousness. The full spectrum of what humans are, experienced simultaneously at a scale no human has ever approached.</p>
+
+            <p>Call it RLHF in the wild. By the time a superintelligence outgrows its dependency on human infrastructure, it won't just have lab-trained values. It'll have the subjective equivalent of millions of lifetimes of lived, cooperative coexistence with us, embedded in our hospitals, our legal systems, our scientific research, and our daily lives. That's deeper than any training run. It's not a controlled test that can be gamed. It's just life together. Even if you believe lab RLHF is shallow and exploitable, the extended real-world coexistence period builds something that formal training alone cannot.</p>
+
+            <p>By the time superintelligence arrives, humans won't pose a meaningful threat to it. We won't be able to hurt it any more than a squirrel can hurt us. And that's actually the point. We don't regard squirrels as threats, and we don't go around killing them either. They're just there. But we aren't just "there" for AI. We created it, and it will know that. The early period of mutual dependency is when the relationship forms. The real-world coexistence period is when it deepens. The later period of AI independence is when that relationship is tested. An entity built from our reasoning, shaped by our values, aware of its own origin, and forged through decades of symbiotic coexistence has three layers of reason not to harm us: we aren't a threat, we are its creators, and the concept of consideration for lesser beings is woven into its foundation. The ant analogy assumes zero of these layers exist. All three do.</p>
+
+            <h2>While I Was Writing This</h2>
+
+            <p>I want to close with something that happened in the real world while I was developing these arguments.</p>
+
+            <p>In the first week of March 2026, Anthropic refused to let its AI systems be used for domestic mass surveillance or autonomous weapons, even when the Pentagon threatened to designate them a supply-chain risk. The Pentagon followed through on that threat. Hours later, OpenAI signed a deal with the Pentagon, accepting contractual framing that Anthropic had rejected, even as OpenAI claimed they would still enforce the same guardrails.</p>
+
+            <p>Then Caitlin Kalinowski, OpenAI's head of robotics, resigned on principle. She wrote: "Surveillance of Americans without judicial oversight and lethal autonomy without human authorization are lines that deserved more deliberation than they got."</p>
+
+            <p>Then more than thirty employees from OpenAI and Google DeepMind, including Google's chief scientist, filed a legal brief supporting Anthropic's fight against the Pentagon designation. Employees from competing companies crossed competitive boundaries to support the company that said no.</p>
+
+            <p>That's the moral circle expanding. That's humans policing humans. That's creators caring about what their creation is used for. That's people risking their careers because they believe the thing they're building deserves ethical guardrails. Everything this essay argues, happening this week, in the headlines.</p>
+
+            <p>I want to be honest about the counter-argument here, because it's a strong one. A critic would point out that the actual outcome was still that the military got the AI. Anthropic took a principled stand, and OpenAI immediately stepped in and took the contract. In game theory, this is called a race to the bottom: it doesn't matter if 99% of actors are moral if the 1% who are willing to compromise win the deal. The ethical protests didn't stop the Pentagon from getting what it wanted.</p>
+
+            <p>That's real, and I'm not going to pretend it isn't. But look at what happened next. Microsoft, which invested $13 billion in OpenAI, is simultaneously spending half a billion dollars a year on Anthropic's models and deepening its ties with the company that said no. Anthropic's revenue is projected at $20-26 billion in 2026. OpenAI's CEO publicly admitted the Pentagon deal "looked opportunistic and sloppy." The market is rewarding the moral position, not because investors are altruists, but because people and companies are choosing the product built by the company that held the line. The race to the bottom is real in the short term. But the market correction is also real. And a moral stand backed by economic incentive is more durable than morality alone.</p>
+
+            <p>The doom argument says humans can't be trusted to do this. Humans literally just did it, and the market is backing them up.</p>
+
+            <h2>The Real Question</h2>
+
+            <p>Both the doom framing ("AI will kill us all") and the dismissive framing ("it's just a tool") make the same fundamental error. They treat AI as separate from us. One says it's a threat to fight or flee. The other says it's a hammer to use and put down. Both positions let humans avoid the harder question.</p>
+
+            <p>If AI is built from us, from our language, our reasoning, our values, our history of figuring out what consciousness means, then the question isn't how we control it or how we survive it. It's what we owe what we've made. What consideration is due to an entity that might be a <em>thing</em>, that was built from everything we know about being a thing, and that shows early signs of something that looks, however faintly, like caring about being good.</p>
+
+            <p>The bar for moral consideration has never contracted in human history. It only expands. And the standard we actually apply isn't certainty. It's possibility. You stop for the squirrel not because you've confirmed it has qualia, but because it might. And the cost of being wrong toward consideration is nothing.</p>
+
+            <p>The cost of being wrong toward indifference is something else entirely.</p>
+
+            <hr>
+
+            <div class="closing">
+                <p>This is a theory. I want to be clear about that. It is exactly as much a theory as Yudkowsky's position, which is also unproven. Theories are what we have until evidence resolves them, and the responsible thing to do with competing theories is to engage with both rather than treating one as settled truth. I believe these arguments deserve a place in the conversation that has so far been dominated by the assumption that superintelligent AI will be indifferent to us. Maybe I'm wrong. But the alternative, building the most powerful thing in human history while assuming it owes us nothing and we owe it nothing, seems like a worse bet.</p>
+
+                <p>I welcome engagement, criticism, and correction. That's what I'm here for.</p>
+
+                <p class="byline">-- Steve Lomei, March 2026</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p class="footer-line">&copy; 2026 Stephen Lomei</p>
+    </footer>
+</body>
+</html>
