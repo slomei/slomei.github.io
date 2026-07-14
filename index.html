@@ -88,7 +88,7 @@
             letter-spacing: 0.15em;
         }
 
-        /* ── Reel ── */
+        /* ── Reel / Carousel ── */
         .reel-section {
             margin-bottom: 36px;
         }
@@ -103,13 +103,112 @@
             border: 1px solid var(--border);
         }
 
-        .reel iframe {
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 2;
+        }
+
+        .slide iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: 0;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: rgba(10, 10, 10, 0.55);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-bright);
+            cursor: pointer;
+            opacity: 0.85;
+            transition: opacity 0.25s, background 0.2s, border-color 0.2s;
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+        }
+
+        .carousel-arrow svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--accent);
+            border-color: var(--accent-bright);
+        }
+
+        .carousel-arrow.prev { left: 12px; }
+        .carousel-arrow.next { right: 12px; }
+
+        @media (hover: hover) {
+            .carousel-arrow { opacity: 0; }
+            .reel:hover .carousel-arrow { opacity: 1; }
+        }
+
+        .carousel-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .carousel-caption {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .dot:hover { background: var(--text-dim); }
+
+        .dot.active {
+            background: var(--accent-bright);
+            transform: scale(1.15);
         }
 
         /* ── Bio ── */
@@ -324,12 +423,38 @@
         </header>
 
         <div class="reel-section">
-            <div class="reel">
-                <iframe
-                    src="https://player.vimeo.com/video/1166552214?title=0&byline=0&portrait=0&dnt=1"
-                    allowfullscreen
-                    allow="fullscreen">
-                </iframe>
+            <div class="carousel">
+                <div class="reel">
+                    <div class="slide active">
+                        <iframe
+                            src="https://player.vimeo.com/video/1166552214?title=0&byline=0&portrait=0&dnt=1"
+                            allowfullscreen
+                            allow="fullscreen"
+                            title="Animation Reel">
+                        </iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe
+                            src="https://player.vimeo.com/video/1209910017?title=0&byline=0&portrait=0&dnt=1"
+                            allowfullscreen
+                            allow="fullscreen"
+                            title="AI Reel">
+                        </iframe>
+                    </div>
+                    <button class="carousel-arrow prev" type="button" aria-label="Previous video">
+                        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <button class="carousel-arrow next" type="button" aria-label="Next video">
+                        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+                <div class="carousel-meta">
+                    <p class="carousel-caption">Animation Reel</p>
+                    <div class="carousel-dots">
+                        <button class="dot active" type="button" aria-label="Show Animation Reel"></button>
+                        <button class="dot" type="button" aria-label="Show AI Reel"></button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -383,5 +508,50 @@
     <footer>
         <p class="footer-line">© 2026 Stephen Lomei</p>
     </footer>
+
+    <script>
+        (function () {
+            var carousel = document.querySelector('.carousel');
+            if (!carousel) return;
+
+            var slides = carousel.querySelectorAll('.slide');
+            var dots = carousel.querySelectorAll('.dot');
+            var caption = carousel.querySelector('.carousel-caption');
+            var labels = ['Animation Reel', 'AI Reel'];
+            var current = 0;
+
+            function pause(i) {
+                var frame = slides[i].querySelector('iframe');
+                if (frame && frame.contentWindow) {
+                    frame.contentWindow.postMessage('{"method":"pause"}', '*');
+                }
+            }
+
+            function go(index) {
+                var count = slides.length;
+                var next = ((index % count) + count) % count;
+                if (next === current) return;
+                pause(current);
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                slides[next].classList.add('active');
+                dots[next].classList.add('active');
+                caption.textContent = labels[next];
+                current = next;
+            }
+
+            carousel.querySelector('.next').addEventListener('click', function () { go(current + 1); });
+            carousel.querySelector('.prev').addEventListener('click', function () { go(current - 1); });
+
+            dots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () { go(i); });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight') go(current + 1);
+                else if (e.key === 'ArrowLeft') go(current - 1);
+            });
+        })();
+    </script>
 </body>
 </html>
