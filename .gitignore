@@ -1,0 +1,8 @@
+# Windows "mark of the web" metadata that leaks through WSL when copying
+# files from Windows drives. Junk — never publish it.
+*:Zone.Identifier
+
+# Other OS-generated junk files
+Thumbs.db
+desktop.ini
+.DS_Store
